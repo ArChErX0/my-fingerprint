@@ -9,6 +9,21 @@ type TimeZoneInfo = {
   locale: string
 }
 
+type DomainRuleType = 'DOMAIN-SUFFIX' | 'DOMAIN-KEYWORD' | 'DOMAIN'
+
+type DomainRule = {
+  type: DomainRuleType
+  value: string
+  raw: string
+}
+
+type TimeZoneRuleConfig = {
+  rulesText: string
+  rules: DomainRule[]
+  match: TimeZoneInfo | null
+  fallback: TimeZoneInfo | null
+}
+
 type EquipmentInfo = {
   platform: string
   appVersion: string

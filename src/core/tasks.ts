@@ -1,6 +1,7 @@
 import { HookType } from '@/types/enum'
 import { type HookTask } from "./core";
 import { pick, seededRandom } from '@/utils/base';
+import { matchDomainRules } from '@/utils/domain-rule';
 import {
   notify,
   drawNoiseTo2d,
@@ -507,9 +508,18 @@ export const hookTasks: HookTask[] = [
    * 时区
    */
   {
-    condition: ({ conf }) => conf.fp.other.timezone.type !== HookType.default,
-    onEnable: ({ gthis, conf, useHookMode, useProxy }) => {
-      const tzValue = useHookMode(conf.fp.other.timezone).value
+    condition: ({ conf }) => {
+      const ruleConfig = conf.fp.other.timezoneRule
+      const hasRuleValue = !!(ruleConfig?.match || ruleConfig?.fallback)
+      return conf.fp.other.timezone.type !== HookType.default || hasRuleValue
+    },
+    onEnable: ({ gthis, conf, info, useHookMode, useProxy }) => {
+      const ruleConfig = conf.fp.other.timezoneRule
+      const hasRules = !!ruleConfig?.rules?.length
+      const hasRuleValue = !!(ruleConfig?.match || ruleConfig?.fallback)
+      const isRuleMatch = hasRules && matchDomainRules(ruleConfig.rules, info.host)
+      const ruleTzValue = isRuleMatch ? ruleConfig?.match : ruleConfig?.fallback
+      const tzValue = hasRuleValue ? ruleTzValue : useHookMode(conf.fp.other.timezone).value
       if (!tzValue) return;
 
       const _DateTimeFormat = gthis.Intl.DateTimeFormat;
