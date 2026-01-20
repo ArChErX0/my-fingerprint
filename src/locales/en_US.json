@@ -49,7 +49,14 @@
       "strong": "Strong",
       "other": "Other"
     },
-    "preset-panel": "Preset Panel"
+    "preset-panel": "Preset Panel",
+    "tz": {
+      "system": "System timezone",
+      "import": "Import rule set",
+      "no-rules": "No rules imported",
+      "rule-count": "Loaded {{count}} rules",
+      "custom": "Custom timezone"
+    }
   },
   "type": {
     "default": "Default",
@@ -137,6 +144,9 @@
     },
     "sub": {
       "tz": {
+        "rules": "Domain rule set",
+        "match": "Timezone for matched rules",
+        "fallback": "Timezone for unmatched rules",
         "offset": "Offset",
         "locale": "Locale",
         "zone": "Zone"
@@ -158,6 +168,7 @@
     "ok": {
       "config-import": "Import Config Success",
       "config-export": "Export Config Success",
+      "rule-import": "Rule set imported",
       "subscribe-test": "Subscription Test Passed",
       "subscribe": "Subscription Success"
     },
@@ -169,6 +180,7 @@
       "config-parse": "Config Parse Error",
       "config-import": "Import Config Error",
       "config-export": "Export Config Error",
+      "rule-import": "Rule set import failed",
       "config-unloaded": "Config Unloaded",
       "import-empty": "Import Config is Empty",
       "subscribe-test": "Subscription Test Failed",

@@ -73,6 +73,12 @@ export const genDefaultLocalStorage = (): LocalStorage => {
         },
         other: {
           timezone: { type: HookType.default },
+          timezoneRule: {
+            rulesText: '',
+            rules: [],
+            match: null,
+            fallback: null,
+          },
           canvas: { type: HookType.page },
           audio: { type: HookType.default },
           webgl: { type: HookType.page },

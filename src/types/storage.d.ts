@@ -47,6 +47,7 @@ type HookFingerprint = {
   }
   other: {
     timezone: DefaultHookMode | ValueHookMode<TimeZoneInfo>
+    timezoneRule?: TimeZoneRuleConfig
     canvas: DefaultHookMode | RandomHookMode
     audio: DefaultHookMode | RandomHookMode
     webgl: DefaultHookMode | RandomHookMode

@@ -49,7 +49,14 @@
       "strong": "强指纹",
       "other": "其他"
     },
-    "preset-panel": "预设面板"
+    "preset-panel": "预设面板",
+    "tz": {
+      "system": "系统时区",
+      "import": "导入规则集",
+      "no-rules": "未导入规则集",
+      "rule-count": "已加载 {{count}} 条规则",
+      "custom": "自定义时区"
+    }
   },
   "type": {
     "default": "系统值",
@@ -137,6 +144,9 @@
     },
     "sub": {
       "tz": {
+        "rules": "域名规则集",
+        "match": "命中规则时区",
+        "fallback": "未命中规则时区",
         "offset": "时间差",
         "locale": "语言环境",
         "zone": "时区名称"
@@ -158,6 +168,7 @@
     "ok": {
       "config-import": "配置导入成功",
       "config-export": "配置导出成功",
+      "rule-import": "规则集导入成功",
       "subscribe-test": "订阅测试通过",
       "subscribe": "订阅成功"
     },
@@ -169,6 +180,7 @@
       "config-parse": "配置解析失败",
       "config-import": "配置导入失败",
       "config-export": "配置导出失败",
+      "rule-import": "规则集导入失败",
       "config-unloaded": "配置未加载",
       "import-empty": "导入配置为空",
       "subscribe-test": "订阅测试失败",
